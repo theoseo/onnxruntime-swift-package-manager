@@ -26,7 +26,7 @@ let package = Package(
         .library(name: "onnxruntime",
                  type: .static,
                  targets: ["OnnxRuntimeBindings"]),
-        .library(name: "onnxruntime_extensions",
+        .library(name: "onnxruntime-extensions",
                  type: .static,
                  targets: ["OnnxRuntimeExtensions"]),
     ],
@@ -105,7 +105,7 @@ if let pod_archive_path = ProcessInfo.processInfo.environment["ORT_IOS_POD_LOCAL
 }
 
 if let ext_pod_archive_path = ProcessInfo.processInfo.environment["ORT_EXTENSIONS_IOS_POD_LOCAL_PATH"] {
-    package.targets.append(Target.binaryTarget(name: "onnxruntime_extensions", path: ext_pod_archive_path))
+    package.targets.append(Target.binaryTarget(name: "onnxruntime-extensions", path: ext_pod_archive_path))
 } else {
      // ORT Extensions 0.11.0 release
       package.targets.append(
